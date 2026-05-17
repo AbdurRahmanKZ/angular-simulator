@@ -8,7 +8,7 @@ interface IUser {
   sayHi():void;
 }
 
-interface iUserIndia extends IUser {
+interface IUserIndia extends IUser {
   kasta: string;
   money: string;
 }
