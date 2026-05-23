@@ -36,7 +36,7 @@
           width: 132px;
           height: 22px;
           margin: 0;
-          letter-spacing: 40%;
+          letter-spacing: 0.4em;
           font-weight: var(--font-bold);
         }
       }
@@ -74,15 +74,21 @@
   }
 
   .main {
+    margin: 0 auto;
+    height: 865px;
+    width: 1180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
     color: var(--white-color);
 
     .search-title {
-      width: 1080px;
+      width: 1180px;
       height: 150px;
-      margin: 431px 470px 50px 370px;
       font-weight: var(--font-min);
       line-height: 150%;
-      letter-spacing: 2%;
+      letter-spacing: 0.02%;
       text-transform: uppercase;
     }
 

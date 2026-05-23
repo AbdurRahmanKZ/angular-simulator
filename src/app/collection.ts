@@ -42,6 +42,6 @@ console.log(strings.getAllElements());
 strings.replaceDefinedElement(0, 'h');
 console.log(strings.getAllElements());
 
-localStorage.setItem('test', JSON.stringify([4, 5, 6]));
+localStorage.setItem('test', JSON.stringify(['x', 'y', 'z']));
 const numbersFromLocal = new CollectionWithLocalKey<string>('test');
 console.log(numbersFromLocal.getAllElements());

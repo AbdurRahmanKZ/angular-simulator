@@ -13,7 +13,7 @@ import './collection';
 export class AppComponent {
   titleName: string = 'румтибет';
 
-  checlColor(color: string):boolean {
+  checkColor(color: string):boolean {
     if (color === Color.Red) return true
     if (color === Color.Green) return true
     if (color === Color.Blue) return true
