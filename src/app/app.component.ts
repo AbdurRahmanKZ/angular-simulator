@@ -13,6 +13,8 @@ import './collection';
 export class AppComponent {
   titleName: string = 'румтибет';
 
+  isLoading: boolean = true;
+
   checkColor(color: string): boolean {
     if (color === Color.Red) return true
     if (color === Color.Green) return true
@@ -37,8 +39,7 @@ export class AppComponent {
     localStorage.setItem('qtyLoad', String(currentQty + 1));
   }
 
-  loading(event: Event): void {
-    const target = event.currentTarget as HTMLElement
-    setTimeout(() => {target.style.display = 'none'}, 3000);
+  ngOnInit(): void {
+    setTimeout(() => {this.isLoading = false}, 2000);
   }
 }
