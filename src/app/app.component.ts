@@ -13,7 +13,7 @@ import './collection';
 export class AppComponent {
   titleName: string = 'румтибет';
 
-  checkColor(color: string):boolean {
+  checkColor(color: string): boolean {
     if (color === Color.Red) return true
     if (color === Color.Green) return true
     if (color === Color.Blue) return true
@@ -27,13 +27,18 @@ export class AppComponent {
     console.log(localStorage.getItem('qtyLoad'))
   }
 
-  saveLastLoad():void {
+  saveLastLoad(): void {
     const time = new Date().toString();
     localStorage.setItem('lastLoadDate', time);
   }
 
-  saveQtyLoad():void {
+  saveQtyLoad(): void {
     const currentQty = Number(localStorage.getItem('qtyLoad') || 0);
     localStorage.setItem('qtyLoad', String(currentQty + 1));
+  }
+
+  loading(event: Event): void {
+    const target = event.currentTarget as HTMLElement
+    setTimeout(() => {target.style.display = 'none'}, 3000);
   }
 }
