@@ -1,0 +1,40 @@
+@use './_fonts';
+@use './_normalize';
+
+* {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 1920px;
+  display: block;
+  margin: 0 auto;
+}
+
+:root {
+  --white-color: #FDFDFD;
+  --black-color: #18121E;
+  --yellow-color: #F2BE22;
+  --font-bold: 700;
+  --font-normal: 600;
+  --font-min: 400;
+}
+
+.fs16 {
+  font-size: 16px;
+}
+
+.fs18 {
+  font-size: 18px;
+}
+
+.fs20 {
+  font-size: 20px;
+}
+
+.fs50 {
+  font-size: 50px;
+}
