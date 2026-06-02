@@ -1,7 +1,19 @@
+@use '../assets/mixins.scss' as *;
+
 .hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
   .background-nature {
     position: absolute;
     z-index: -10;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
   }
 
   .header {
@@ -94,7 +106,7 @@
 
     .search-container {
       box-sizing: border-box;
-      margin: 0 auto;
+      margin: 0 auto 82px;
       padding: 0 42px 0 43px;
       background-color: rgba(255, 255, 255, 0.2);
       border-radius: 10px;
@@ -115,8 +127,10 @@
         &-li {
           flex: 1;
 
-          &-div {
+          &-select {
+            color: var(--black-color);
             height: 52px;
+            min-width: 270px;
             border: 1px solid var(--white-color);
             border-radius: 7px;
             display: flex;
@@ -124,6 +138,55 @@
             justify-content: space-between;
             padding: 0 16px 0 16px;
             margin-bottom: 14px;
+            background-image: url('/pictures/arrow-down.png');
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+
+            background-color: transparent;
+            color: var(--white-color);
+            outline: none;
+            cursor: pointer;
+          }
+
+          &-input {
+            height: 52px;
+            border: 1px solid var(--white-color);
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            padding: 0 16px 0 16px;
+            margin-bottom: 14px;
+            background-image: url('/pictures/calendar.png');
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+
+            .search-date {
+              background: transparent;
+              border: none;
+              outline: none;
+              color: var(--white-color);
+              // width: 100%;
+              position: absolute;
+              // inset: 0;
+              width: 100%;
+              height: 100%;
+              // opacity: 0;
+              cursor: pointer;
+              z-index: 1;
+            }
+
+            .search-date::-webkit-calendar-picker-indicator {
+              opacity: 0;
+            }
+
+            .search-date::-webkit-datetime-edit {
+              // color: transparent;
+            }
           }
 
           span {
@@ -132,18 +195,9 @@
             font-weight: 400;
           }
         }
-        .search-button {
-          width: 213px;
-          height: 52px;
-          background-color: #1a3e3e;
-          color: var(--white-color);
-          border-radius: 4px;
-          padding-top: 16px;
-          padding-right: 36px;
-          padding-bottom: 16px;
-          padding-left: 36px;
-          border: none;
 
+        .search-button {
+          @include btn();
         }
       }
     }
@@ -176,7 +230,7 @@
     animation: spin 1s linear infinite;
   }
 
-  
+
   @keyframes spin {
     to {
       transform: rotate(-360deg);
@@ -184,6 +238,171 @@
   }
 }
 
+.about {
+  background-color: var(--white-color);
+
+  .about-container {
+    width: 1180px;
+    margin: 100px auto;
+    position: relative;
+    display: flex;
+
+    .about-nature-wrapper {
+      flex: 0 0 45%;
+
+      .forest-house-img-wrapper {
+        position: absolute;
+        top: 126px;
+        left: 130px;
+
+        .forest-house-img {
+          display: block;
+        }
+
+        .play-btn {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background-color: #FFFFFF99;
+          border: none;
+          cursor: pointer;
+        }
+
+        .play-btn::before {
+          content: '';
+          position: absolute;
+          left: 20px;
+          top: 15px;
+          border-left: 16px solid #1A3E3E;
+          border-top: 10px solid transparent;
+          border-bottom: 10px solid transparent;
+        }
+
+      }
+    }
+
+    .about-text-wrapper {
+      width: auto;
+      padding: 64px 0 64px 120px;
+      flex: 1;
+      min-width: 0;
+
+      .about-text {
+        position: relative;
+        height: 398px;
+
+        .about-pretitle {
+          @include pretitle();
+        }
+
+        .about-title {
+          @include title();
+
+          margin-bottom: 40px;
+        }
+
+        .about-description {
+          @include desc();
+        }
+
+        .about-btn {
+          @include btn();
+
+          position: absolute;
+          bottom: 0;
+          left: 0;
+        }
+      }
+    }
+  }
+}
+
 .loading-hidden {
   display: none !important;
+}
+
+.facilities {
+  background-color: #F3F5F4;
+  padding: 80px;
+
+  &-container {
+    display: flex;
+    width: 1180px;
+    min-height: 591px;
+    margin: 0px auto;
+    gap: 80px;
+  }
+
+  .facilities-text-wrapper {
+    .facilities-pretitle {
+      @include pretitle();
+    }
+
+    .facilities-title {
+      @include title();
+    }
+
+    .facilities-discription {
+      @include desc();
+    }
+
+    .facilities-cards {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+
+      .facility {
+        &.wrapper {
+          display: flex;
+          justify-content: space-between;
+          gap: 50px;
+        }
+
+        .facility-img {
+          min-width: 50px;
+          min-height: 50px;
+          background: #E5EEEB;
+          display: flex;
+          align-items: center;
+          justify-content: center
+        }
+
+        .facility-text-wrapper {
+          .facility-title {
+            margin-bottom: 4px;
+          }
+
+          .facility-description {}
+        }
+      }
+    }
+
+    .facilities-btn {
+      @include btn();
+
+      margin-top: 40px;
+    }
+  }
+
+  .facilities-nature-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+
+    .facilities-nature-wrapper-top {
+      display: flex;
+      gap: 10px;
+    }
+
+    .facilities-nature-wrapper-bottom {
+      display: flex;
+      gap: 10px;
+    }
+  }
 }

@@ -1,5 +1,6 @@
 @use './_fonts';
 @use './_normalize';
+@use './mixins.scss' as *;
 
 * {
   font-family: 'Nunito Sans';
@@ -18,6 +19,7 @@ body {
   --white-color: #FDFDFD;
   --black-color: #18121E;
   --yellow-color: #F2BE22;
+  --font-extra-bold: 800;
   --font-bold: 700;
   --font-normal: 600;
   --font-min: 400;
@@ -35,6 +37,18 @@ body {
   font-size: 20px;
 }
 
+.fs24 {
+  font-size: 24px;
+}
+
+.fs32 {
+  font-size: 32px;
+}
+
 .fs50 {
   font-size: 50px;
+}
+
+.option {
+  color: var(--black-color);
 }
