@@ -17,6 +17,8 @@
   }
 
   .header {
+    z-index: 100;
+    position: fixed;
     height: 120px;
     padding: 30px;
     color: var(--white-color);
@@ -24,6 +26,8 @@
     box-sizing: border-box;
 
     .header-container {
+      z-index: 100;
+      position: fixed;
       width: 1180px;
       height: 60px;
       margin: 0px auto;
