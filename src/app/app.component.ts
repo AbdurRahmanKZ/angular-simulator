@@ -28,7 +28,6 @@ export class AppComponent {
   private dateTimerId?: ReturnType<typeof setInterval>
   public liveInput: string = '';
 
-
   public facilities: facility[] = [
     {
       id: 1,
@@ -49,7 +48,6 @@ export class AppComponent {
       desc: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.'
     }
   ]
-
 
   constructor() {
     this.saveLastLoad();
