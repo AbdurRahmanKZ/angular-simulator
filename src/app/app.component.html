@@ -18,13 +18,32 @@
       </nav>
       <button class="nav-btn">Консультация</button>
     </div>
+    @if(interactive === 'counter') {
+    <div class="interactive">
+      <div>
+        <button class="interactive-btn" (click)="count = count + 1">+</button>
+        <div>{{count}}</div>
+        <button class="interactive-btn" (click)="count = count - 1" [disabled]="count === 0">-</button>
+      </div>
+      <button class="interactive-toggle-btn" (click)="showDate()">Показать дату</button>
+    </div>
+    }
+
+    @if(interactive === 'date') {
+    <div class="interactive">
+      <div>{{ currentDate | date:'dd.MM.yyyy H:mm:ss' }}</div>
+      <button class="interactive-toggle-btn" (click)="showCounter()">Показать кликер</button>
+    </div>
+    }
+
+
   </header>
   <main class="main">
     <h1 class="search-title fs50">Насладись прогулкой в горах <br> с командой единомышленников</h1>
     <div class="search-container">
       <ul class="search-wrapper">
         <li class="search-wrapper-li">
-          <select class="search-wrapper-li-select">
+          <select class="search-wrapper-li-select" [(ngModel)]="tour.location">
             <option value="" selected hidden disabled>Локация для тура</option>
             <option class="option" value="altai">Алтай</option>
             <option class="option" value="kavkaz">Кавказ</option>
@@ -32,22 +51,27 @@
           <span>выберите из списка</span>
         </li>
         <li class="search-wrapper-li">
-          <div class="search-wrapper-li-input">
-            
-            <input class="search-date" type="date" required [(ngModel)]="inputs" placeholder="Дата похода">
-            <img class="calendar" src="/pictures/calendar.png" alt="calendar"></div>
+          <div class="search-wrapper-li-container">
+            <input class="search-date" type="date" required [(ngModel)]="tour.date" placeholder="">
+            <span class="custom-placeholder">Дата похода</span>
+            <img class="calendar" src="/pictures/calendar.png" alt="calendar">
+          </div>
           <span>укажите дату</span>
         </li>
         <li class="search-wrapper-li">
-          <select class="search-wrapper-li-select">
+          <select class="search-wrapper-li-select" [(ngModel)]="tour.participants">
             <option value="" selected hidden disabled>Участники</option>
             <option class="option" value="one">1 человек</option>
             <option class="option" value="two">2 человек</option>
           </select>
           <span>выберите из списка</span>
         </li>
-        <button class="search-button">Найти программу</button>
+        <button class="search-button" [disabled]="isSearchDisabled">Найти программу</button>
       </ul>
+    </div>
+    <div class="live-input-container">
+      <input class="live-input" type="text" [(ngModel)]="liveInput" placeholder="Живой инпут">
+      <div class="live-text">{{ liveInput }}</div>
     </div>
   </main>
 </section>
@@ -67,9 +91,9 @@
       <div class="about-text">
         <h4 class="about-pretitle fs24">о нашем походе</h4>
         <h3 class="about-title fs32">Исследуйте все горные массивы мира вместе с нами</h3>
-        <p class="about-description fs18">Его корни уходят в один фрагмент классической латыни 45 
-          года н.э., то есть более двух тысячелетий назад. Ричард МакКлинток, профессор латыни из 
-          колледжа Hampden-Sydney, штат Вирджиния, взял одно из самых странных слов в Lorem Ipsum, 
+        <p class="about-description fs18">Его корни уходят в один фрагмент классической латыни 45
+          года н.э., то есть более двух тысячелетий назад. Ричард МакКлинток, профессор латыни из
+          колледжа Hampden-Sydney, штат Вирджиния, взял одно из самых странных слов в Lorem Ipsum,
           "consectetur"и занялся его поисками в классической латинской литературе.
         </p>
         <button class="about-btn">Программа тура</button>
@@ -82,18 +106,18 @@
     <div class="facilities-text-wrapper">
       <h4 class="facilities-pretitle fs24">наше предложение</h4>
       <h3 class="facilities-title fs32">Лучшие программы для тебя</h3>
-      <p class="facilities-discription fs18">Его корни уходят в один фрагмент классической латыни 45 года н.э., 
+      <p class="facilities-discription fs18">Его корни уходят в один фрагмент классической латыни 45 года н.э.,
         то есть более двух тысячелетий назад. Ричард МакКлинток, профессор латыни из колледжа.
       </p>
       <div class="facilities-cards">
         @for (facility of facilities; track facility.id) {
-          <div class="facility wrapper">
-            <div class="facility-img"><img [src]='facility.img' alt="img"></div>
-            <div class="facility-text-wrapper">
-              <h4 class="facility-title">{{ facility.title }}</h4>
-              <p class="facility-description">{{ facility.desc }}</p>
-            </div>
+        <div class="facility wrapper">
+          <div class="facility-img"><img [src]='facility.img' alt="img"></div>
+          <div class="facility-text-wrapper">
+            <h4 class="facility-title">{{ facility.title }}</h4>
+            <p class="facility-description">{{ facility.desc }}</p>
           </div>
+        </div>
         }
       </div>
       <button class="facilities-btn">Стоимость программ</button>

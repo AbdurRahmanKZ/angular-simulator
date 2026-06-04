@@ -33,3 +33,35 @@
   line-height: 150%;
   letter-spacing: 0;
 }
+
+@mixin nav-btn {
+  min-width: 158px;
+  height: 44px;
+  color: #1A3E3E;
+  background-color: var(--white-color);
+  font-weight: var(--font-normal);
+  border-radius: 4px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+@mixin input {
+  height: 52px;
+  min-width: 270px;
+  border: 1px solid var(--white-color);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 0 16px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: transparent;
+  color: var(--white-color);
+  outline: none;
+  cursor: pointer;
+}
