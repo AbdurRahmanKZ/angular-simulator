@@ -90,7 +90,7 @@ export class AppComponent {
 
   public regenColor(event: Event): void {
     const element = event.currentTarget as HTMLElement;
-    element.style = '';
+    element.removeAttribute('style');
   }
 
   public get isSearchDisabled(): boolean {
