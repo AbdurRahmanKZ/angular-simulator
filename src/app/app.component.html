@@ -16,30 +16,35 @@
           <li class="nav-li">Контакты</li>
         </ul>
       </nav>
-      <button class="nav-btn">Консультация</button>
-    </div>
-    @if(interactive === 'counter') {
-    <div class="interactive">
-      <div>
-        <button class="interactive-btn" (click)="count = count + 1">+</button>
-        <div>{{count}}</div>
-        <button class="interactive-btn" (click)="count = count - 1" [disabled]="count === 0">-</button>
+      <div class="interactive-wrapper">
+        <button class="nav-btn">Консультация</button>
+        @if(interactive === 'counter') {
+        <div class="interactive">
+          <div>
+            <button class="interactive-btn" (click)="count = count + 1">+</button>
+            <div>{{count}}</div>
+            <button class="interactive-btn" (click)="count = count - 1" [disabled]="count === 0">-</button>
+          </div>
+          <button class="interactive-toggle-btn" (click)="showDate()">Показать дату</button>
+        </div>
+        }
+        @if(interactive === 'date') {
+        <div class="interactive">
+          <div>{{ currentDate | date:'dd.MM.yyyy H:mm:ss' }}</div>
+          <button class="interactive-toggle-btn" (click)="showCounter()">Показать кликер</button>
+        </div>
+        }
       </div>
-      <button class="interactive-toggle-btn" (click)="showDate()">Показать дату</button>
     </div>
-    }
-
-    @if(interactive === 'date') {
-    <div class="interactive">
-      <div>{{ currentDate | date:'dd.MM.yyyy H:mm:ss' }}</div>
-      <button class="interactive-toggle-btn" (click)="showCounter()">Показать кликер</button>
-    </div>
-    }
 
   </header>
   <main class="main">
     <h1 class="search-title fs50">Насладись прогулкой в горах <br> с командой единомышленников</h1>
     <div class="search-container">
+      <div class="live-input-container">
+      <input class="live-input" type="text" [(ngModel)]="liveInput" placeholder="Живой инпут">
+      <div class="live-text">{{ liveInput }}</div>
+    </div>
       <ul class="search-wrapper">
         <li class="search-wrapper-li">
           <select class="search-wrapper-li-select" [(ngModel)]="tour.location">
@@ -68,10 +73,10 @@
         <button class="search-button" [disabled]="isSearchDisabled">Найти программу</button>
       </ul>
     </div>
-    <div class="live-input-container">
+    <!-- <div class="live-input-container">
       <input class="live-input" type="text" [(ngModel)]="liveInput" placeholder="Живой инпут">
       <div class="live-text">{{ liveInput }}</div>
-    </div>
+    </div> -->
   </main>
 </section>
 <div class="loading" [class.loading-hidden]="!isLoading">
