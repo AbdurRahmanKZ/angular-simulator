@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { JsonPipe, DatePipe } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { Color } from '../enums/color';
 import './training';
 import './collection';
@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, JsonPipe, DatePipe],
+  imports: [FormsModule, DatePipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
