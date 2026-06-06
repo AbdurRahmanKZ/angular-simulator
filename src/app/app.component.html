@@ -112,7 +112,9 @@
       <div class="facilities-cards">
         @for (facility of facilities; track facility.id) {
         <div class="facility wrapper">
-          <div class="facility-img"><img [src]='facility.img' alt="img"></div>
+          <div>
+            <div class="facility-img"><img [src]='facility.img' alt="img"></div>
+          </div>
           <div class="facility-text-wrapper">
             <h4 class="facility-title">{{ facility.title }}</h4>
             <p class="facility-description">{{ facility.desc }}</p>
