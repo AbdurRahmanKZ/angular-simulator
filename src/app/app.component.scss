@@ -102,6 +102,10 @@
 
           }
 
+          .interactive-date {
+            white-space: nowrap;
+          }
+
           .interactive-btn {
             cursor: pointer;
           }
@@ -407,6 +411,7 @@
 .facilities {
   background-color: #F3F5F4;
   padding: 80px;
+  box-sizing: border-box;
 
   &-container {
     display: flex;
@@ -481,6 +486,27 @@
     .facilities-nature-wrapper-bottom {
       display: flex;
       gap: 10px;
+    }
+  }
+}
+
+.popular {
+
+  .popular-container {
+    width: 1180px;
+    margin: 0 auto;
+    padding-top: 80px;
+
+    .popular-pretitle {
+      @include pretitle();
+
+      margin: 0 auto 20px;
+      text-align: center
+    }
+
+    .popular-title {
+      @include title();
+      text-align: center
     }
   }
 }

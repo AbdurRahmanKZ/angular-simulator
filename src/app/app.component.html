@@ -30,7 +30,7 @@
         }
         @if(interactive === 'date') {
         <div class="interactive">
-          <div>{{ currentDate | date:'dd.MM.yyyy H:mm:ss' }}</div>
+          <div class="interactive-date">{{ currentDate | date:'dd.MM.yyyy H:mm:ss' }}</div>
           <button class="interactive-toggle-btn" (click)="showCounter()">Показать кликер</button>
         </div>
         }
@@ -55,8 +55,8 @@
           <span>выберите из списка</span>
         </li>
         <li class="search-wrapper-li">
-          <div class="search-wrapper-li-container">
-            <input class="search-date" type="date" required [(ngModel)]="tour.date" placeholder="">
+          <div class="search-wrapper-li-container" (click)="openDatePicker(dateInput)">
+            <input #dateInput class="search-date" type="date" required [(ngModel)]="tour.date" placeholder="">
             <span class="custom-placeholder">Дата похода</span>
             <img class="calendar" src="/pictures/calendar.png" alt="calendar">
           </div>
@@ -73,10 +73,6 @@
         <button class="search-button" [disabled]="isSearchDisabled">Найти программу</button>
       </ul>
     </div>
-    <!-- <div class="live-input-container">
-      <input class="live-input" type="text" [(ngModel)]="liveInput" placeholder="Живой инпут">
-      <div class="live-text">{{ liveInput }}</div>
-    </div> -->
   </main>
 </section>
 <div class="loading" [class.loading-hidden]="!isLoading">
@@ -105,7 +101,7 @@
     </div>
   </div>
 </section>
-<section class="facilities" tabindex="0" (mouseenter)="changeColor($event)" (mouseleave)="regenColor($event)">
+<section class="facilities" tabindex="0">
   <div class="facilities-container">
     <div class="facilities-text-wrapper">
       <h4 class="facilities-pretitle fs24">наше предложение</h4>
@@ -128,13 +124,20 @@
     </div>
     <div class="facilities-nature-wrapper">
       <div class="facilities-nature-wrapper-top">
-        <img src="\pictures\nature-one.png" alt="img">
-        <img src="\pictures\nature-two.png" alt="img">
+        <img src="\pictures\nature-one.png" alt="img" (mouseenter)="changeColor($event)" (mouseleave)="regenColor($event)">
+        <img src="\pictures\nature-two.png" alt="img" (mouseenter)="changeColor($event)" (mouseleave)="regenColor($event)">
       </div>
       <div class="facilities-nature-wrapper-bottom">
-        <img src="\pictures\nature-three.png" alt="img">
-        <img src="\pictures\nature-four.png" alt="img">
+        <img src="\pictures\nature-three.png" alt="img" (mouseenter)="changeColor($event)" (mouseleave)="regenColor($event)">
+        <img src="\pictures\nature-four.png" alt="img" (mouseenter)="changeColor($event)" (mouseleave)="regenColor($event)">
       </div>
     </div>
   </div>
 </section>
+<section class="popular">
+  <div class="popular-container">
+    <h4 class="popular-pretitle fs24">по версии отдыхающих</h4>
+    <h3 class="popular-title fs32">Популярные направления</h3>
+  </div>
+</section>
+<img src="/pictures/mountain-stretch_blurred.svg" alt="">

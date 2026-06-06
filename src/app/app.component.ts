@@ -79,12 +79,8 @@ export class AppComponent {
 
   public changeColor(event: Event): void {
     const element = event.currentTarget as HTMLElement;
-    element.style.filter = 'invert(1)';
     element.style.position = 'invert(1)';
-    element.style.background = 'white';
-    element.style.border = '10px solid green';
-    element.style.transform = 'scale(1.05)';
-    element.style.overflow = 'hidden';
+    element.style.transform = 'scale(107%)';
     element.style.transition = 'transform 0.3s ease';
   }
 
@@ -110,5 +106,10 @@ export class AppComponent {
   public showCounter(): void {
     clearInterval(this.dateTimerId);
     this.interactive = 'counter';
+  }
+
+  public openDatePicker(input: HTMLInputElement): void {
+    input.focus();
+    input.showPicker();
   }
 }
