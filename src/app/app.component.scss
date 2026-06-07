@@ -378,16 +378,6 @@
         position: relative;
         height: 398px;
 
-        .about-pretitle {
-          @include pretitle();
-        }
-
-        .about-title {
-          @include title();
-
-          margin-bottom: 40px;
-        }
-
         .about-description {
           @include desc();
         }
@@ -422,13 +412,6 @@
   }
 
   .facilities-text-wrapper {
-    .facilities-pretitle {
-      @include pretitle();
-    }
-
-    .facilities-title {
-      @include title();
-    }
 
     .facilities-discription {
       @include desc();
@@ -495,19 +478,264 @@
 
   .popular-container {
     width: 1180px;
+    // height: 933px;
     margin: 0 auto;
-    padding-top: 80px;
+    padding: 80px 0 95px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
 
     .popular-pretitle {
-      @include pretitle();
-
-      margin: 0 auto 20px;
       text-align: center
     }
 
     .popular-title {
-      @include title();
-      text-align: center
+      margin-bottom: 0;
+    }
+
+    .popular-card-container {
+      width: 1180px;
+      min-height: 500px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20pxs;
+
+      .location-card {
+        color: var(--white-color);
+        width: 380px;
+        height: 500px;
+        border-radius: 32px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+
+        .location-img {
+          position: absolute;
+          inset: 0;
+          z-index: 1;
+        }
+
+        .location-raiting-container {
+          box-sizing: border-box;
+          position: absolute;
+          top: 50px;
+          right: 0;
+          min-width: 65px;
+          height: 32px;
+          display: flex;
+          gap: 8px;
+          align-items: center;
+          z-index: 2;
+          background-color: #FFFFFF33;
+          border-radius: 4px 0 0 4px;
+
+          .location-raiting-star-wrapper {
+            box-sizing: border-box;
+            width: 24px;
+            height: 24px;
+            padding: 3px;
+          }
+        }
+
+        .location-container {
+          box-sizing: border-box;
+          padding: 20px 32px 23px;
+          position: relative;
+          height: 90px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          z-index: 2;
+          background-color: #FFFFFF33;
+
+          .location-text-container {
+            width: 195px;
+
+            .location-title {
+              @include location-title();
+              white-space: nowrap;
+            }
+
+            .location-description {
+              @include location-paragrath();
+              white-space: nowrap;
+            }
+          }
+
+          .location-price-container {
+            width: 86px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            background-color: #FFFFFF4D;
+            border-radius: 4px;
+          }
+        }
+      }
+    }
+
+    .popular-btn {
+      @include btn();
+
+
+    }
+  }
+}
+
+.blog {
+  background: #F3F5F4;
+
+  .blog-container {
+    width: 1180px;
+    height: 933px;
+    margin: 0 auto 40px;
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+
+    .blog-title-container {
+      .blog-pretitle {
+        text-align: center;
+      }
+
+      .blog-title {
+        margin-bottom: 0;
+      }
+    }
+
+    .blog-cards-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+
+      .blog-card {
+        box-sizing: border-box;
+        width: 580px;
+        height: 312px;
+        display: flex;
+        gap: 24px;
+        border-radius: 10px;
+        padding: 16px;
+        background: var(--white-color);
+
+        img {
+          border-radius: 6px;
+        }
+
+        .blog-card-text-container {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          .blog-card-top {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin: 16px 0 0;
+
+            .blog-card-title {
+              font-weight: var(--font-bold);
+              font-size: 24px;
+              line-height: 32px;
+              letter-spacing: 0;
+              cursor: pointer;
+
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+
+            .blog-card-description {
+              font-weight: var(--font-min);
+              line-height: 20px;
+              letter-spacing: 0;
+            }
+          }
+
+
+
+          .blog-card-bottom {
+            display: flex;
+            justify-content: space-between;
+
+            .blog-card-date {
+              font-weight: var(--font-bold);
+              line-height: 20px;
+              letter-spacing: 0;
+              color: var(--yellow-color);
+            }
+
+            .blog-card-btn {
+              font-weight: var(--font-bold);
+              line-height: 20px;
+              letter-spacing: 0;
+              border: none;
+              background: transparent;
+              color: #1A3E3E;
+            }
+          }
+        }
+
+        &:hover {
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2)
+        }
+      }
+    }
+
+    .blog-btn {
+      @include btn();
+    }
+  }
+}
+
+.message-container {
+  width: 350px;
+  height: 70px;
+  padding: 15px;
+  border: 1px solid var(--white-color);
+  border-radius: 10px;
+  display: flex;
+  gap: 15px;
+  position: fixed;
+  top: 170px;
+  right: 20px;
+  background-color: #0F172AD9;
+
+
+  .message-img-container {
+    background: red;
+    width: 40px;
+    height: 40px;
+
+    .message-icon {
+    }
+  }
+
+  .message-text {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .message-btn {
+    width: 20px;
+    height: 20px;
+    top: 7px;
+    left: 7px;
+    position: absolute;
+    background: transparent;
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      display: block;
     }
   }
 }

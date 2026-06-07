@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import { DatePipe } from '@angular/common';
+import { CommonModule, DatePipe, NgTemplateOutlet } from '@angular/common';
 import { Color } from '../enums/color';
 import './training';
 import './collection';
 import './interfaces';
-import { facility } from './interfaces';
+import { blogCard, facility, location } from './interfaces';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, DatePipe],
+  imports: [FormsModule, DatePipe, NgTemplateOutlet, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -46,6 +46,64 @@ export class AppComponent {
       img: '/pictures/birk.png',
       title: 'Лояльные цены',
       desc: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.'
+    }
+  ]
+
+  public locations: location[] = [
+    {
+      id: 1,
+      img: '/pictures/mountain-lake.svg',
+      title: 'Озеро возле гор',
+      desc: 'романтическое приключение',
+      price: 480,
+      raiting: 4.9
+    },
+    {
+      id: 2,
+      img: '/pictures/mountain-night.svg',
+      title: 'Ночь в горах',
+      desc: 'в компании друзей',
+      price: 500,
+      raiting: 4.5
+    },
+    {
+      id: 3,
+      img: '/pictures/mountain-stretch_blurred.svg',
+      title: 'Растяжка в горах',
+      desc: 'для тех, кто забоится о себе',
+      price: 230,
+      raiting: 5.0
+    }
+  ]
+
+  blogCards: blogCard[] = [
+    {
+      id: 1,
+      img: '/pictures/italy.svg',
+      title: 'Красивая Италя, какая она в реальности?',
+      desc: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
+      date: '01/04/2023'
+    },
+    {
+      id: 2,
+      img: '/pictures/plane-sky.svg',
+      title: 'Долой сомнения! Весь мир открыт для вас!',
+      desc: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации ... независимые способы реализации соответствующих...',
+      date: '01/04/2023'
+    },
+    {
+      id: 3,
+      img: '/pictures/lone-travel.svg',
+      title: 'Как подготовиться к путешествию в одиночку? ',
+      desc: 'Для современного мира базовый вектор развития предполагает..',
+      date: '01/04/2023'
+    },
+    {
+      id: 4,
+      img: '/pictures/india.svg',
+      title: 'Индия ... летим?',
+      desc: 'Для современного мира базовый.',
+      date: '01/04/2023'
     }
   ]
 
