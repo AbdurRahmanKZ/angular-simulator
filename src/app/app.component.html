@@ -4,7 +4,7 @@
     <div class="header-container">
       <div class="img-container">
         <img class="img-header" src="/pictures/two-mountains.png" alt="two-mountains">
-        <h3 class="title-header">{{titleName.toUpperCase()}}</h3>
+        <h3 class="title-header">{{companyName.toUpperCase()}}</h3>
       </div>
       <nav class="nav">
         <ul class="nav-ul fs18">
@@ -18,6 +18,7 @@
       </nav>
       <div class="interactive-wrapper">
         <button class="nav-btn">Консультация</button>
+
         @if(interactive === 'counter') {
         <div class="interactive">
           <div>
@@ -34,9 +35,9 @@
           <button class="interactive-toggle-btn" (click)="showCounter()">Показать кликер</button>
         </div>
         }
+
       </div>
     </div>
-
   </header>
   <main class="main">
     <h1 class="search-title fs50">Насладись прогулкой в горах <br> с командой единомышленников</h1>
@@ -70,7 +71,7 @@
           </select>
           <span>выберите из списка</span>
         </li>
-        <button class="search-button" [disabled]="isSearchDisabled">Найти программу</button>
+        <button class="search-button" [disabled]="isSearchDisabled" (click)="onSearch()">Найти программу</button>
       </ul>
     </div>
   </main>
@@ -96,7 +97,10 @@
           колледжа Hampden-Sydney, штат Вирджиния, взял одно из самых странных слов в Lorem Ipsum,
           "consectetur"и занялся его поисками в классической латинской литературе.
         </p>
-        <button class="about-btn">Программа тура</button>
+        <button class="about-btn"
+          (click)="messageService.addMessage({ text: 'Message Content', type: messageService.messageTypes.SUCCESS })">
+          Программа тура
+        </button>
       </div>
     </div>
   </div>
@@ -110,6 +114,7 @@
         то есть более двух тысячелетий назад. Ричард МакКлинток, профессор латыни из колледжа.
       </p>
       <div class="facilities-cards">
+
         @for (facility of facilities; track facility.id) {
         <div class="facility wrapper">
           <div>
@@ -121,8 +126,12 @@
           </div>
         </div>
         }
+
       </div>
-      <button class="facilities-btn">Стоимость программ</button>
+      <button class="facilities-btn"
+        (click)="messageService.addMessage({ text: 'Message Content', type: messageService.messageTypes.INFO })">
+        Стоимость программ
+      </button>
     </div>
     <div class="facilities-nature-wrapper">
       <div class="facilities-nature-wrapper-top">
@@ -147,6 +156,7 @@
       <h3 class="popular-title  title fs32">Популярные направления</h3>
     </div>
     <div class="popular-card-container">
+
       @for(location of locations; track location.id) {
       <div class="location-card">
         <div class="location-container">
@@ -159,7 +169,8 @@
           </div>
         </div>
         <div class="location-raiting-container">
-          <div class="location-raiting-star-wrapper"><img class="location-raiting-star" src="/pictures/star.svg" alt="star icon"></div>
+          <div class="location-raiting-star-wrapper"><img class="location-raiting-star" src="/pictures/star.svg"
+              alt="star icon"></div>
           <span class="location-raiting">{{ location.raiting.toFixed(1) }}</span>
         </div>
         <img class="location-img" [src]="location.img" alt="location image">
@@ -167,7 +178,10 @@
       }
 
     </div>
-    <button class="popular-btn">Рейтинг направлений</button>
+    <button class="popular-btn"
+      (click)="messageService.addMessage({ text: 'Message Content', type: messageService.messageTypes.WARNING })">
+      Рейтинг направлений
+    </button>
   </div>
 </section>
 
@@ -175,37 +189,53 @@
   <div class="blog-container">
     <div class="blog-title-container">
       <h4 class="blog-pretitle pretitle fs24">делимся впечатлениями</h4>
-        <h3 class="blog-title title fs32">Блог о путешествиях</h3>
+      <h3 class="blog-title title fs32">Блог о путешествиях</h3>
     </div>
     <div class="blog-cards-container">
+
       @for (blogCard of blogCards; track blogCard.id) {
-        <div class="blog-card">
-          <img [src]="blogCard.img" alt="blog image">
-          <div class="blog-card-text-container">
-            <div class="blog-card-top">
-              <h3 class="blog-card-title fs24">{{ blogCard.title }}</h3>
-              <p class="blog-card-description fs14">{{ blogCard.desc }}</p>
-            </div>
-            <div class="blog-card-bottom">
-              <span class="blog-card-date fs14">{{ blogCard.date }}</span>
-              <button class="blog-card-btn fs14">читать статью</button>
-            </div>
+      <div class="blog-card">
+        <img [src]="blogCard.img" alt="blog image">
+        <div class="blog-card-text-container">
+          <div class="blog-card-top">
+            <h3 class="blog-card-title fs24">{{ blogCard.title }}</h3>
+            <p class="blog-card-description fs14">{{ blogCard.desc }}</p>
+          </div>
+          <div class="blog-card-bottom">
+            <span class="blog-card-date fs14">{{ blogCard.date }}</span>
+            <button class="blog-card-btn fs14">читать статью</button>
           </div>
         </div>
+      </div>
       }
+
     </div>
-    <button class="blog-btn">Другие материалы</button>
+    <button class="blog-btn"
+      (click)="messageService.addMessage({ text: 'Message Content', type: messageService.messageTypes.ERROR })">
+      Другие материалы
+    </button>
   </div>
 </section>
-<ng-template #message>
+
+<ng-template #messageTemplate let-message>
   <div class="message-container">
-    <div class="message-img-container"><img class="message-icon" src="/pictures/message.jpg" alt=""></div>
+    <div class="message-img-container"><img class="message-icon" src="/pictures/message.svg" alt=""></div>
     <div class="message-text">
-      <h3 class="message-title">Success</h3>
-      <p class="message-description"></p>
+      <h3 class="message-title">{{ message.type }}</h3>
+      <p class="message-description">{{ message.text }}</p>
     </div>
-    <button class="message-btn"><img class="message-img" src="/pictures/x.jpg" alt=""></button>
+    <button class="message-btn" (click)="messageService.closeMessage(message.id)">
+      <img class="message-img" src="/pictures/x.svg">
+    </button>
   </div>
 </ng-template>
 
-<ng-container *ngTemplateOutlet="message"></ng-container>
+<div class="toasts">
+
+  @if (messageService.list.length > 0) {
+  @for(m of messageService.list; track m.id) {
+  <ng-container [ngTemplateOutlet]="messageTemplate" [ngTemplateOutletContext]="{ $implicit: m }"></ng-container>
+  }
+  }
+
+</div>

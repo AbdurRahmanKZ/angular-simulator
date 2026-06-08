@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule, DatePipe, NgTemplateOutlet } from '@angular/common';
 import { Color } from '../enums/color';
 import './training';
 import './collection';
 import './interfaces';
-import { blogCard, facility, location } from './interfaces';
+import { BlogCard, Facility, Location } from './interfaces';
 import { FormsModule } from '@angular/forms';
+import { MessageService } from './services/message/message.service';
+import { LocalStorageService } from './services/local-storage/local-storage.service';
+import { messageTypes } from './services/message/message.type';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +18,10 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class AppComponent {
-  public titleName: string = 'румтибет';
+  messageService: MessageService = inject(MessageService);
+  localStorageService: LocalStorageService = inject(LocalStorageService);
+
+  public companyName: string = 'румтибет';
   public isLoading: boolean = true;
   public tour = {
     location: '',
@@ -28,7 +34,7 @@ export class AppComponent {
   private dateTimerId?: ReturnType<typeof setInterval>
   public liveInput: string = '';
 
-  public facilities: facility[] = [
+  public facilities: Facility[] = [
     {
       id: 1,
       img: '/pictures/people.png',
@@ -49,7 +55,7 @@ export class AppComponent {
     }
   ]
 
-  public locations: location[] = [
+  public locations: Location[] = [
     {
       id: 1,
       img: '/pictures/mountain-lake.svg',
@@ -76,7 +82,7 @@ export class AppComponent {
     }
   ]
 
-  blogCards: blogCard[] = [
+  blogCards: BlogCard[] = [
     {
       id: 1,
       img: '/pictures/italy.svg',
@@ -114,6 +120,14 @@ export class AppComponent {
     console.log(localStorage.getItem('qtyLoad'))
   }
 
+  public onSearch(): void {
+    if (this.isSearchDisabled) return;
+
+  alert(
+    `Поиск тура: ${this.tour.location}, дата: ${this.tour.date}, участников: ${this.tour.participants}`
+  );
+  }
+
   private checkColor(color: string): boolean {
     if (color === Color.Red) return true
     if (color === Color.Green) return true
@@ -123,12 +137,12 @@ export class AppComponent {
 
   private saveLastLoad(): void {
     const time = new Date().toString();
-    localStorage.setItem('lastLoadDate', time);
+    this.localStorageService.set('lastLoadDate', time);
   }
 
   private saveQtyLoad(): void {
-    const currentQty = Number(localStorage.getItem('qtyLoad') || 0);
-    localStorage.setItem('qtyLoad', String(currentQty + 1));
+    const currentQty = +(localStorage.getItem('qtyLoad') || 0);
+    this.localStorageService.set('qtyLoad', String(currentQty + 1));
   }
 
   private ngOnInit(): void {
@@ -137,7 +151,6 @@ export class AppComponent {
 
   public changeColor(event: Event): void {
     const element = event.currentTarget as HTMLElement;
-    element.style.position = 'invert(1)';
     element.style.transform = 'scale(107%)';
     element.style.transition = 'transform 0.3s ease';
   }
@@ -169,5 +182,18 @@ export class AppComponent {
   public openDatePicker(input: HTMLInputElement): void {
     input.focus();
     input.showPicker();
+  }
+
+  public addSuccessMessage(): void {
+    this.messageService.addMessage({ text: 'Message Content', type: messageTypes.SUCCESS });
+  }
+  public addInfoMessage(): void {
+    this.messageService.addMessage({ text: 'Message Content', type: messageTypes.INFO });
+  }
+  public addWarningMessage(): void {
+    this.messageService.addMessage({ text: 'Message Content', type: messageTypes.WARNING });
+  }
+  public addErrorMessage(): void {
+    this.messageService.addMessage({ text: 'Message Content', type: messageTypes.ERROR });
   }
 }

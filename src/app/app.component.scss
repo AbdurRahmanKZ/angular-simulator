@@ -165,8 +165,6 @@
         position: absolute;
         left: 0;
         bottom: -67px;
-        // bottom: 8px;
-        // left: 170px;
         display: flex;
         gap: 30px;
         align-items: center;
@@ -695,47 +693,87 @@
   }
 }
 
-.message-container {
-  width: 350px;
-  height: 70px;
-  padding: 15px;
-  border: 1px solid var(--white-color);
-  border-radius: 10px;
-  display: flex;
-  gap: 15px;
+@keyframes toast-life {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+}
+
+.toasts {
   position: fixed;
   top: 170px;
   right: 20px;
-  background-color: #0F172AD9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 10000;
 
-
-  .message-img-container {
-    background: red;
-    width: 40px;
-    height: 40px;
-
-    .message-icon {
-    }
-  }
-
-  .message-text {
+  .message-container {
+    position: relative;
+    width: 350px;
+    min-height: 70px;
+    box-sizing: border-box;
+    padding: 16px;
+    background-color: #18121e80;
+    border-radius: 10px;
+    overflow: hidden;
     display: flex;
-    flex-direction: column;
-    align-items: start;
-  }
+    align-items: center;
+    gap: 16px;
+    animation: toast-life 5s ease forwards;
 
-  .message-btn {
-    width: 20px;
-    height: 20px;
-    top: 7px;
-    left: 7px;
-    position: absolute;
-    background: transparent;
 
-    &-img {
-      width: 100%;
-      height: 100%;
-      display: block;
+    .message-img-container {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+
+      .message-icon {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+    }
+
+    .message-text {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+    }
+
+    .message-btn {
+      width: 20px;
+      height: 20px;
+      top: 7px;
+      right: 12px;
+      position: absolute;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+
+      .message-img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
     }
   }
 }

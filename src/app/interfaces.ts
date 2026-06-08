@@ -1,10 +1,10 @@
-export interface facility {
+export interface Facility {
   id: number;
   img: string;
   title: string;
   desc: string;
 }
-export interface location {
+export interface Location {
   id: number;
   img: string;
   title: string;
@@ -13,7 +13,7 @@ export interface location {
   raiting: number;
 }
 
-export interface blogCard {
+export interface BlogCard {
   id: number,
   img: string,
   title: string,
