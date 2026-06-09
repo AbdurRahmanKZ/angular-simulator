@@ -116,8 +116,8 @@ export class AppComponent {
   constructor() {
     this.saveLastLoad();
     this.saveQtyLoad();
-    console.log(localStorage.getItem('lastLoadDate'))
-    console.log(localStorage.getItem('qtyLoad'))
+    console.log(this.localStorageService.get('lastLoadDate'))
+    console.log(this.localStorageService.get('qtyLoad'))
   }
 
   public onSearch(): void {
@@ -141,7 +141,7 @@ export class AppComponent {
   }
 
   private saveQtyLoad(): void {
-    const currentQty = +(localStorage.getItem('qtyLoad') || 0);
+    const currentQty = +(this.localStorageService.get('qtyLoad') || 0);
     this.localStorageService.set('qtyLoad', String(currentQty + 1));
   }
 
