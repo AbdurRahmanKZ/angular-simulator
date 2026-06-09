@@ -4,7 +4,7 @@
     <div class="header-container">
       <div class="img-container">
         <img class="img-header" src="/pictures/two-mountains.png" alt="two-mountains">
-        <h3 class="title-header">{{titleName.toUpperCase()}}</h3>
+        <h3 class="title-header">{{companyName.toUpperCase()}}</h3>
       </div>
       <nav class="nav">
         <ul class="nav-ul fs18">
@@ -18,6 +18,7 @@
       </nav>
       <div class="interactive-wrapper">
         <button class="nav-btn">Консультация</button>
+
         @if(interactive === 'counter') {
         <div class="interactive">
           <div>
@@ -30,21 +31,21 @@
         }
         @if(interactive === 'date') {
         <div class="interactive">
-          <div>{{ currentDate | date:'dd.MM.yyyy H:mm:ss' }}</div>
+          <div class="interactive-date">{{ currentDate | date:'dd.MM.yyyy H:mm:ss' }}</div>
           <button class="interactive-toggle-btn" (click)="showCounter()">Показать кликер</button>
         </div>
         }
+
       </div>
     </div>
-
   </header>
   <main class="main">
     <h1 class="search-title fs50">Насладись прогулкой в горах <br> с командой единомышленников</h1>
     <div class="search-container">
       <div class="live-input-container">
-      <input class="live-input" type="text" [(ngModel)]="liveInput" placeholder="Живой инпут">
-      <div class="live-text">{{ liveInput }}</div>
-    </div>
+        <input class="live-input" type="text" [(ngModel)]="liveInput" placeholder="Живой инпут">
+        <div class="live-text">{{ liveInput }}</div>
+      </div>
       <ul class="search-wrapper">
         <li class="search-wrapper-li">
           <select class="search-wrapper-li-select" [(ngModel)]="tour.location">
@@ -55,9 +56,9 @@
           <span>выберите из списка</span>
         </li>
         <li class="search-wrapper-li">
-          <div class="search-wrapper-li-container">
-            <input class="search-date" type="date" required [(ngModel)]="tour.date" placeholder="">
-            <span class="custom-placeholder">Дата похода</span>
+          <div class="search-wrapper-li-container" (click)="openDatePicker(dateInput)">
+            <input #dateInput class="search-date" type="date" required [(ngModel)]="tour.date" placeholder="">
+            <span class="custom-placeholder fs14">Дата похода</span>
             <img class="calendar" src="/pictures/calendar.png" alt="calendar">
           </div>
           <span>укажите дату</span>
@@ -70,13 +71,9 @@
           </select>
           <span>выберите из списка</span>
         </li>
-        <button class="search-button" [disabled]="isSearchDisabled">Найти программу</button>
+        <button class="search-button" [disabled]="isSearchDisabled" (click)="onSearch()">Найти программу</button>
       </ul>
     </div>
-    <!-- <div class="live-input-container">
-      <input class="live-input" type="text" [(ngModel)]="liveInput" placeholder="Живой инпут">
-      <div class="live-text">{{ liveInput }}</div>
-    </div> -->
   </main>
 </section>
 <div class="loading" [class.loading-hidden]="!isLoading">
@@ -93,48 +90,152 @@
     </div>
     <div class="about-text-wrapper">
       <div class="about-text">
-        <h4 class="about-pretitle fs24">о нашем походе</h4>
-        <h3 class="about-title fs32">Исследуйте все горные массивы мира вместе с нами</h3>
+        <h4 class="about-pretitle pretitle fs24">о нашем походе</h4>
+        <h3 class="about-title title fs32">Исследуйте все горные массивы мира вместе с нами</h3>
         <p class="about-description fs18">Его корни уходят в один фрагмент классической латыни 45
           года н.э., то есть более двух тысячелетий назад. Ричард МакКлинток, профессор латыни из
           колледжа Hampden-Sydney, штат Вирджиния, взял одно из самых странных слов в Lorem Ipsum,
           "consectetur"и занялся его поисками в классической латинской литературе.
         </p>
-        <button class="about-btn">Программа тура</button>
+        <button class="about-btn"
+          (click)="messageService.addMessage({ text: 'Message Content', type: messageService.messageTypes.SUCCESS })">
+          Программа тура
+        </button>
       </div>
     </div>
   </div>
 </section>
-<section class="facilities" tabindex="0" (mouseenter)="changeColor($event)" (mouseleave)="regenColor($event)">
+<section class="facilities" tabindex="0">
   <div class="facilities-container">
     <div class="facilities-text-wrapper">
-      <h4 class="facilities-pretitle fs24">наше предложение</h4>
-      <h3 class="facilities-title fs32">Лучшие программы для тебя</h3>
+      <h4 class="facilities-pretitle pretitle fs24">наше предложение</h4>
+      <h3 class="facilities-title title fs32">Лучшие программы для тебя</h3>
       <p class="facilities-discription fs18">Его корни уходят в один фрагмент классической латыни 45 года н.э.,
         то есть более двух тысячелетий назад. Ричард МакКлинток, профессор латыни из колледжа.
       </p>
       <div class="facilities-cards">
+
         @for (facility of facilities; track facility.id) {
         <div class="facility wrapper">
-          <div class="facility-img"><img [src]='facility.img' alt="img"></div>
+          <div>
+            <div class="facility-img"><img [src]='facility.img' alt="img"></div>
+          </div>
           <div class="facility-text-wrapper">
             <h4 class="facility-title">{{ facility.title }}</h4>
             <p class="facility-description">{{ facility.desc }}</p>
           </div>
         </div>
         }
+
       </div>
-      <button class="facilities-btn">Стоимость программ</button>
+      <button class="facilities-btn"
+        (click)="messageService.addMessage({ text: 'Message Content', type: messageService.messageTypes.INFO })">
+        Стоимость программ
+      </button>
     </div>
     <div class="facilities-nature-wrapper">
       <div class="facilities-nature-wrapper-top">
-        <img src="\pictures\nature-one.png" alt="img">
-        <img src="\pictures\nature-two.png" alt="img">
+        <img src="\pictures\nature-one.png" alt="img" (mouseenter)="changeColor($event)"
+          (mouseleave)="regenColor($event)">
+        <img src="\pictures\nature-two.png" alt="img" (mouseenter)="changeColor($event)"
+          (mouseleave)="regenColor($event)">
       </div>
       <div class="facilities-nature-wrapper-bottom">
-        <img src="\pictures\nature-three.png" alt="img">
-        <img src="\pictures\nature-four.png" alt="img">
+        <img src="\pictures\nature-three.png" alt="img" (mouseenter)="changeColor($event)"
+          (mouseleave)="regenColor($event)">
+        <img src="\pictures\nature-four.png" alt="img" (mouseenter)="changeColor($event)"
+          (mouseleave)="regenColor($event)">
       </div>
     </div>
   </div>
 </section>
+<section class="popular">
+  <div class="popular-container">
+    <div class="popular-title-container">
+      <h4 class="popular-pretitle pretitle fs24">по версии отдыхающих</h4>
+      <h3 class="popular-title  title fs32">Популярные направления</h3>
+    </div>
+    <div class="popular-card-container">
+
+      @for(location of locations; track location.id) {
+      <div class="location-card">
+        <div class="location-container">
+          <div class="location-text-container">
+            <h3 class="location-title">{{ location.title }}</h3>
+            <p class="location-description">{{ location.desc }}</p>
+          </div>
+          <div class="location-price-container">
+            <span class="location-price">{{ location.price }} &#36;</span>
+          </div>
+        </div>
+        <div class="location-raiting-container">
+          <div class="location-raiting-star-wrapper"><img class="location-raiting-star" src="/pictures/star.svg"
+              alt="star icon"></div>
+          <span class="location-raiting">{{ location.raiting.toFixed(1) }}</span>
+        </div>
+        <img class="location-img" [src]="location.img" alt="location image">
+      </div>
+      }
+
+    </div>
+    <button class="popular-btn"
+      (click)="messageService.addMessage({ text: 'Message Content', type: messageService.messageTypes.WARNING })">
+      Рейтинг направлений
+    </button>
+  </div>
+</section>
+
+<section class="blog">
+  <div class="blog-container">
+    <div class="blog-title-container">
+      <h4 class="blog-pretitle pretitle fs24">делимся впечатлениями</h4>
+      <h3 class="blog-title title fs32">Блог о путешествиях</h3>
+    </div>
+    <div class="blog-cards-container">
+
+      @for (blogCard of blogCards; track blogCard.id) {
+      <div class="blog-card">
+        <img [src]="blogCard.img" alt="blog image">
+        <div class="blog-card-text-container">
+          <div class="blog-card-top">
+            <h3 class="blog-card-title fs24">{{ blogCard.title }}</h3>
+            <p class="blog-card-description fs14">{{ blogCard.desc }}</p>
+          </div>
+          <div class="blog-card-bottom">
+            <span class="blog-card-date fs14">{{ blogCard.date }}</span>
+            <button class="blog-card-btn fs14">читать статью</button>
+          </div>
+        </div>
+      </div>
+      }
+
+    </div>
+    <button class="blog-btn"
+      (click)="messageService.addMessage({ text: 'Message Content', type: messageService.messageTypes.ERROR })">
+      Другие материалы
+    </button>
+  </div>
+</section>
+
+<ng-template #messageTemplate let-message>
+  <div class="message-container">
+    <div class="message-img-container"><img class="message-icon" src="/pictures/message.svg" alt=""></div>
+    <div class="message-text">
+      <h3 class="message-title">{{ message.type }}</h3>
+      <p class="message-description">{{ message.text }}</p>
+    </div>
+    <button class="message-btn" (click)="messageService.closeMessage(message.id)">
+      <img class="message-img" src="/pictures/x.svg">
+    </button>
+  </div>
+</ng-template>
+
+<div class="toasts">
+
+  @if (messageService.list.length > 0) {
+  @for(m of messageService.list; track m.id) {
+  <ng-container [ngTemplateOutlet]="messageTemplate" [ngTemplateOutletContext]="{ $implicit: m }"></ng-container>
+  }
+  }
+
+</div>

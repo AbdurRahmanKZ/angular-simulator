@@ -1,10 +1,3 @@
-@mixin title() {
-  color: var(--black-color);
-  font-weight: var(--font-extra-bold);
-  line-height: 120%;
-  letter-spacing: 0;
-}
-
 @mixin btn() {
   min-width: 213px;
   height: 52px;
@@ -18,14 +11,6 @@
   border: none;
   cursor: pointer;
   white-space: nowrap;
-}
-
-@mixin pretitle() {
-  color: var(--yellow-color);
-  font-weight: var(--font-min);
-  line-height: 20px;
-  letter-spacing: 0;
-  margin-bottom: 8px;
 }
 
 @mixin desc() {
@@ -64,4 +49,20 @@
   color: var(--white-color);
   outline: none;
   cursor: pointer;
+}
+
+@mixin location-title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 120%;
+  letter-spacing: 0;
+}
+
+@mixin location-paragrath {
+  max-width: 195px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0em;
+
 }
