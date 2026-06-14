@@ -8,12 +8,13 @@
       </div>
       <nav class="nav">
         <ul class="nav-ul fs18">
-          <li class="nav-li">Главная</li>
+          <li class="nav-li"><a routerLink="/" routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }">Главная</a></li>
           <li class="nav-li">Про гида</li>
-          <li class="nav-li">Программа тура</li>
+          <li class="nav-li"><a routerLink="/catalog" routerLinkActive="active">Программа тура</a></li>
           <li class="nav-li">Стоимость</li>
           <li class="nav-li">Блог</li>
-          <li class="nav-li">Контакты</li>
+          <li class="nav-li"><a routerLink="/contacts" routerLinkActive="active">Контакты</a></li>
         </ul>
       </nav>
       <div class="interactive-wrapper">
@@ -39,6 +40,9 @@
       </div>
     </div>
   </header>
+
+  <router-outlet></router-outlet>
+
   <main class="main">
     <h1 class="search-title fs50">Насладись прогулкой в горах <br> с командой единомышленников</h1>
     <div class="search-container">
@@ -161,7 +165,7 @@
       <div class="location-card">
         <div class="location-container">
           <div class="location-text-container">
-            <h3 class="location-title">{{ location.title }}</h3>
+            <h3 class="location-title"><a [routerLink]="['/product', location.id]">{{ location.title }}</a></h3>
             <p class="location-description">{{ location.desc }}</p>
           </div>
           <div class="location-price-container">

@@ -9,10 +9,11 @@ import { FormsModule } from '@angular/forms';
 import { MessageService } from './services/message/message.service';
 import { LocalStorageService } from './services/local-storage/local-storage.service';
 import { messageTypes } from './services/message/message.type';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, DatePipe, NgTemplateOutlet, CommonModule],
+  imports: [FormsModule, DatePipe, NgTemplateOutlet, CommonModule, RouterLink, RouterLinkActive, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

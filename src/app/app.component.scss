@@ -73,6 +73,11 @@
           display: flex;
           justify-content: space-between;
           font-weight: var(--font-normal);
+
+          .nav-li a.active {
+            color: #f2be22;
+            font-weight: 700;
+          }
         }
       }
 
