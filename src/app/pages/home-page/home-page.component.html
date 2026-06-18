@@ -60,7 +60,7 @@
           "consectetur"и занялся его поисками в классической латинской литературе.
         </p>
         <button class="about-btn"
-          (click)="messageService.addMessage({ text: 'Message Content', type: messageService.messageTypes.SUCCESS })">
+          (click)="messageService.showSuccess()">
           Программа тура
         </button>
       </div>
@@ -91,7 +91,7 @@
 
       </div>
       <button class="facilities-btn"
-        (click)="messageService.addMessage({ text: 'Message Content', type: messageService.messageTypes.INFO })">
+        (click)="messageService.showInfo()">
         Стоимость программ
       </button>
     </div>
@@ -141,7 +141,7 @@
 
     </div>
     <button class="popular-btn"
-      (click)="messageService.addMessage({ text: 'Message Content', type: messageService.messageTypes.WARNING })">
+      (click)="messageService.showWarn()">
       Рейтинг направлений
     </button>
   </div>
@@ -173,7 +173,7 @@
 
     </div>
     <button class="blog-btn"
-      (click)="messageService.addMessage({ text: 'Message Content', type: messageService.messageTypes.ERROR })">
+      (click)="messageService.showError()">
       Другие материалы
     </button>
   </div>
@@ -198,7 +198,7 @@
       </div>
     </div>
     <button class="review-btn"
-      (click)="messageService.addMessage({ text: 'Message Content', type: messageService.messageTypes.ERROR })">
+      (click)="messageService.showError()">
       Другие материалы
     </button>
   </div>
