@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { MessageService } from './services/message/message.service';
 import { LocalStorageService } from './services/local-storage/local-storage.service';
 import { messageTypes } from './services/message/message.type';
+import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,11 @@ import { messageTypes } from './services/message/message.type';
 export class AppComponent {
   messageService: MessageService = inject(MessageService);
   localStorageService: LocalStorageService = inject(LocalStorageService);
+
+  @HostListener('window:scroll')
+  onWindowScroll(): void {
+    this.isScrolled = window.scrollY > 0;
+  }
 
   public companyName: string = 'румтибет';
   public isLoading: boolean = true;
@@ -33,6 +39,7 @@ export class AppComponent {
   public currentDate = new Date();
   private dateTimerId?: ReturnType<typeof setInterval>
   public liveInput: string = '';
+  public isScrolled: boolean = false;
 
   public facilities: Facility[] = [
     {
