@@ -1,0 +1,22 @@
+<ng-template #messageTemplate let-message>
+  <div class="message-container">
+    <div class="message-img-container"><img class="message-icon" src="/../pictures/message.svg" alt=""></div>
+    <div class="message-text">
+      <h3 class="message-title">{{ message.type }}</h3>
+      <p class="message-description">{{ message.text }}</p>
+    </div>
+    <button class="message-btn" (click)="messageService.closeMessage(message.id)">
+      <img class="message-img" src="/pictures/x.svg">
+    </button>
+  </div>
+</ng-template>
+
+<div class="toasts">
+
+  @if (messageService.list.length > 0) {
+  @for(m of messageService.list; track m.id) {
+  <ng-container [ngTemplateOutlet]="messageTemplate" [ngTemplateOutletContext]="{ $implicit: m }"></ng-container>
+  }
+  }
+
+</div>
