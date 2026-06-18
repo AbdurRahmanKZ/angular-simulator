@@ -6,13 +6,17 @@
     </div>
     <nav class="nav">
       <ul class="nav-ul fs18">
-        <li class="nav-li">Главная</li>
-        <li class="nav-li">Про гида</li>
-        <li class="nav-li">Программа тура</li>
-        <li class="nav-li">Стоимость</li>
-        <li class="nav-li">Блог</li>
-        <li class="nav-li">Контакты</li>
+        @for (navLink of navLinks; track navLink.id) {
+        <li class="nav-li">
+          <a [routerLink]="navLink.path" routerLinkActive="nav-link-active"
+            [routerLinkActiveOptions]="{ exact : navLink.path === '/'}">
+            {{navLink.name}}
+          </a>
+        </li>
+        }
       </ul>
+
+
     </nav>
     <div class="interactive-wrapper">
       <button class="nav-btn">Консультация</button>

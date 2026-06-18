@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { HostListener } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
-  imports: [DatePipe],
+  imports: [DatePipe, RouterLink, RouterLinkActive],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
@@ -22,7 +24,18 @@ export class HeaderComponent {
   public count: number = 0;
   public currentDate = new Date();
   private dateTimerId?: ReturnType<typeof setInterval>
-
+  public navLinks = [
+    {
+      id: 1,
+      name: 'main',
+      path: '/',
+    },
+    {
+      id: 2,
+      name: 'users',
+      path: '/users' 
+    }
+  ];
 
 
   public showDate(): void {

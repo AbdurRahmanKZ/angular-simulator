@@ -55,8 +55,30 @@
         width: 100%;
         list-style: none;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        gap: 50px;
         font-weight: var(--font-normal);
+
+        .nav-link {
+          color: var(--white-color);
+          text-decoration: none;
+
+          &:visited {
+            color: #fff;
+          }
+
+          &:hover {
+            color: #f2be22;
+          }
+        }
+
+        .nav-link-active {
+          color: #f2be22;
+
+          &:visited {
+            color: #f2be22;
+          }
+        }
       }
     }
 
