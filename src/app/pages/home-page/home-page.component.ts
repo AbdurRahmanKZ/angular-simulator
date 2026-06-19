@@ -11,7 +11,7 @@ import { Color } from '../../../enums/color';
   styleUrl: './home-page.component.scss',
 })
 export class HomePageComponent {
-  messageService: MessageService = inject(MessageService);
+  public messageService: MessageService = inject(MessageService);
 
   public isLoading: boolean = true;
 
@@ -100,7 +100,7 @@ export class HomePageComponent {
     }
   ]
 
-  private ngOnInit(): void {
+  public ngOnInit(): void {
     setTimeout(() => { this.isLoading = false }, 2000);
   }
 

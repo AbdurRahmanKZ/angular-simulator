@@ -13,16 +13,4 @@ import { messageTypes } from '../../services/message/message.type';
 export class MessagesComponent {
   messageService: MessageService = inject(MessageService);
 
-  public addSuccessMessage(): void {
-    this.messageService.showSuccess();
-  }
-  public addInfoMessage(): void {
-    this.messageService.showInfo();
-  }
-  public addWarningMessage(): void {
-    this.messageService.showWarn();
-  }
-  public addErrorMessage(): void {
-    this.messageService.showError();
-  }
 }

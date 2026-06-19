@@ -28,19 +28,19 @@ export class MessageService {
     this.messages = this.messages.filter(message => message.id != id);
   }
 
-  showWarn(): void {
-    this.addMessage({ text: 'Message Content', type: messageTypes.WARNING });
+  showWarn(message: string): void {
+    this.addMessage({ text: message, type: messageTypes.WARNING });
   }
 
-  showError(): void {
-    this.addMessage({ text: 'Message Content', type: messageTypes.ERROR });
+  showError(message: string): void {
+    this.addMessage({ text: message, type: messageTypes.ERROR });
   }
 
-  showSuccess(): void {
-    this.addMessage({ text: 'Message Content', type: messageTypes.SUCCESS });
+  showSuccess(message: string): void {
+    this.addMessage({ text: message, type: messageTypes.SUCCESS });
   }
 
-  showInfo(): void {
-    this.addMessage({ text: 'Message Content', type: messageTypes.INFO });
+  showInfo(message: string): void {
+    this.addMessage({ text: message, type: messageTypes.INFO });
   }
 }
