@@ -1,7 +1,7 @@
 <section class="hero">
   <img class="background-nature" src="/pictures/background-nature.png" alt="background-nature">
 
-  <main class="main">
+  <section class="main">
     <h1 class="search-title fs50">Насладись прогулкой в горах <br> с командой единомышленников</h1>
     <div class="search-container">
       <div class="live-input-container">
@@ -36,7 +36,7 @@
         <button class="search-button" [disabled]="isSearchDisabled" (click)="onSearch()">Найти программу</button>
       </ul>
     </div>
-  </main>
+  </section>
 </section>
 <div class="loading" [class.loading-hidden]="!isLoading">
   <img class="loading-icon" src="/pictures/loading.svg" alt="loading...">
