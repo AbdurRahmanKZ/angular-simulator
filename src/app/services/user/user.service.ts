@@ -28,7 +28,7 @@ export class UserService {
     this.loaderService.showLoader();
 
     this.userApiService.getUsers().pipe(
-      catchError(() =>  {
+      catchError(() => {
         this.messageService.showError('Не удалось загрузить пользователей');
         return of([] as IUsers[]);
       }),

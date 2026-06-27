@@ -25,5 +25,5 @@ export interface IUsersCompany {
 
 export interface IUsersGeo {
   lat: number;
-  ing: number;
+  lng: number;
 }
