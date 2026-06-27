@@ -8,10 +8,10 @@ import { LocalStorageService } from './services/local-storage/local-storage.serv
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { MessagesComponent } from './layout/messages/messages.component';
-
+import { LoaderComponent } from './layout/loader/loader.component';
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, MessagesComponent],
+  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, MessagesComponent, LoaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

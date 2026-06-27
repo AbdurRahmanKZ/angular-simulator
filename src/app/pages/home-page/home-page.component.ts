@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { BlogCard, Facility, Location } from '../../interfaces';
+import { BlogCard, Facility, Location } from '../../interfaces/interfaces';
 import { FormsModule } from '@angular/forms';
 import { MessageService } from '../../services/message/message.service';
 import { Color } from '../../../enums/color';
@@ -13,15 +13,13 @@ import { Color } from '../../../enums/color';
 export class HomePageComponent {
   public messageService: MessageService = inject(MessageService);
 
-  public isLoading: boolean = true;
-
   public liveInput: string = '';
   public tour = {
     location: '',
     date: '',
     participants: ''
   }
-  
+
   public facilities: Facility[] = [
     {
       id: 1,
@@ -99,10 +97,6 @@ export class HomePageComponent {
       date: '01/04/2023'
     }
   ]
-
-  public ngOnInit(): void {
-    setTimeout(() => { this.isLoading = false }, 2000);
-  }
 
   public onSearch(): void {
     if (this.isSearchDisabled) return;

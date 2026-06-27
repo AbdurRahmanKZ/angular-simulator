@@ -183,31 +183,6 @@
   pointer-events: none;
 }
 
-.loading {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(5px);
-
-  .loading-icon {
-    width: 51px;
-    height: 51px;
-    opacity: 0.8;
-    filter: brightness(0) invert(0);
-    animation: spin 1s linear infinite;
-  }
-
-  @keyframes spin {
-    to {
-      transform: rotate(-360deg);
-    }
-  }
-}
-
 .about {
   background-color: var(--white-color);
 
