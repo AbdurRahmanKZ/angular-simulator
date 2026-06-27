@@ -2,14 +2,14 @@ export interface IUsers {
   id: number;
   name: string;
   username: string;
-  mail: string;
-  phone: number;
-  site: string;
-  adress: IUsersAdress;
+  email: string;
+  phone: string;
+  website: string;
+  address: IUsersAddress;
   company: IUsersCompany
 }
 
-export interface IUsersAdress {
+export interface IUsersAddress {
   city: string;
   street: string;
   suite: string;
@@ -24,5 +24,6 @@ export interface IUsersCompany {
 }
 
 export interface IUsersGeo {
+  lat: number;
   ing: number;
 }

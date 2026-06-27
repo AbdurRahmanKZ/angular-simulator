@@ -9,65 +9,68 @@
       <div class="users-card">
 
         <h3 class="users-card-name">{{ user.name }}</h3>
-        <h4 class="users-card-username">{{ user.username }}</h4>
+        <h4 class="users-card-username bold brown">@{{ user.username }}</h4>
 
         <div class="users-card-title-wrapper">
           <h3 class="users-card-title">Контакты</h3>
           <hr class="users-card-line">
         </div>
-        <div class="users-group">
-          <span>Эл. почта:</span>
-          <span>{{ user.mail }}</span>
+        <div class="users-card-group">
+          <span class="users-card-group-desc">Эл. почта:</span>
+          <span class="brown bold">{{ user.email }}</span>
         </div>
-        <div class="users-group">
-          <span>Телефон:</span>
-          <span>{{ user.phone }}</span>
+        <div class="users-card-group">
+          <span class="users-card-group-desc">Телефон:</span>
+          <span class="bold">+{{ user.phone }}</span>
         </div>
-        <div class="users-group">
-          <span>Веб-сайт:</span>
-          <span>{{ user.site }}</span>
+        <div class="users-card-group">
+          <span class="users-card-group-desc">Веб-сайт:</span>
+          <span class="brown bold">{{ user.website }}</span>
         </div>
 
         <div class="users-card-title-wrapper">
           <h3 class="users-card-title">Адрес Проживания</h3>
           <hr class="users-card-line">
         </div>
-        <div class="users-group">
-          <span>Город:</span>
-          <span>{{ user.adress.city }}</span>
+        <div class="users-card-group">
+          <span class="users-card-group-desc">Город:</span>
+          <span class="bold">{{ user.address.city }}</span>
         </div>
-        <div class="users-group">
-          <span>Улица:</span>
-          <span>{{ user.adress.street }}</span>
+        <div class="users-card-group">
+          <span class="users-card-group-desc">Улица:</span>
+          <span class="bold">{{ user.address.street }}</span>
         </div>
-        <div class="users-group">
-          <span>Офис:</span>
-          <span>{{ user.adress.suite }}</span>
+        <div class="users-card-group">
+          <span class="users-card-group-desc">Офис:</span>
+          <span class="bold">{{ user.address.suite }}</span>
         </div>
-        <div class="users-group">
-          <span>Индекс:</span>
-          <span>{{ user.adress.zipcode }}</span>
+        <div class="users-card-group">
+          <span class="users-card-group-desc">Индекс:</span>
+          <span class="bold">{{ user.address.zipcode }}</span>
         </div>
-        <div class="users-group">
-          <span>Координаты:</span>
-          <span>{{ user.adress.geo.ing }}</span>
+        <div class="users-card-group">
+          <span class="users-card-group-desc">Координаты:</span>
+          <div class="users-card-group-coords">
+            <span class="bold coord-value">{{ user.address.geo.lat }}</span>
+            <span class="bold coord-value">{{ user.address.geo.ing }}</span>
+          </div>
         </div>
 
         <div class="users-card-title-wrapper">
           <h3 class="users-card-title">Место работы</h3>
           <hr class="users-card-line">
         </div>
-        <div class="users-group">
-          <span>Компания:</span>
-          <span>{{ user.company.name }}</span>
+        <div class="users-card-group">
+          <span class="users-card-group-desc">Компания:</span>
+          <span class="bold">{{ user.company.name }}</span>
         </div>
-        <div class="users-group">
-          <span>Миссия:</span>
-          <span>{{ user.company.catchPhrase }}</span>
+        <div class="users-card-group">
+          <span class="users-card-group-desc">Миссия:</span>
+          <span class="bold italic">{{ user.company.catchPhrase }}</span>
         </div>
-        <div class="users-group">
-          <span>Специализация:</span>
-          <span>{{ user.company.bs }}</span>
+        <div class="users-card-group">
+          <span class="users-card-group-desc">Специализация:</span>
+          <span class="bold">{{ user.company.bs }}</span>
         </div>
       </div>
       }
