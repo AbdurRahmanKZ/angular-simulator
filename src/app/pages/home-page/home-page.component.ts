@@ -1,9 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { BlogCard, Facility, Location } from '../../interfaces';
+import { BlogCard, Facility, Location } from '../../interfaces/interfaces';
 import { FormsModule } from '@angular/forms';
 import { MessageService } from '../../services/message/message.service';
 import { Color } from '../../../enums/color';
-import { LoaderService } from '../../services/loader/loader.service';
 
 @Component({
   selector: 'app-home-page',
@@ -13,7 +12,6 @@ import { LoaderService } from '../../services/loader/loader.service';
 })
 export class HomePageComponent {
   public messageService: MessageService = inject(MessageService);
-  public loaderService: LoaderService = inject(LoaderService);
 
   public liveInput: string = '';
   public tour = {
@@ -99,14 +97,6 @@ export class HomePageComponent {
       date: '01/04/2023'
     }
   ]
-
-  public ngOnInit(): void {
-    this.loaderService.showLoader();
-
-    setTimeout(() => {
-      this.loaderService.hideLoader();
-    }, 3000);
-  }
 
   public onSearch(): void {
     if (this.isSearchDisabled) return;

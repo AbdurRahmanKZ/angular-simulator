@@ -1,7 +1,25 @@
-.users{
+.users {
+  background-color: #F3F5F4;
+
   .users-container {
-    width: 1920px;
-    height: 1000px;
-    background-color: #F3F5F4;
+    margin: 0 auto;
+    width: 1180px;
+    min-height: 1000px;
+
+    .users-title-container {
+      width: 558px;
+      height: 30px;
+      margin: 0 auto;
+      padding-top: 250px;
+
+      .users-title {
+        margin: 0;
+        font-weight: 800;
+        font-size: 48px;
+        line-height: 29.9px;
+        letter-spacing: 0;
+        text-align: center;
+      }
+    }
   }
 }
