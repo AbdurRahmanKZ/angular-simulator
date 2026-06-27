@@ -4,10 +4,9 @@
   background-color: #1a3e3e;
   color: var(--white-color);
   border-radius: 4px;
-  padding-top: 16px;
-  padding-right: 36px;
-  padding-bottom: 16px;
-  padding-left: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   cursor: pointer;
   white-space: nowrap;

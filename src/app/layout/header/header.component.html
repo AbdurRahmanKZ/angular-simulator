@@ -1,0 +1,43 @@
+<header class="header" [class.header-scrolled]="isScrolled">
+  <div class="header-container">
+    <div class="img-container">
+      <img class="img-header" src="/pictures/two-mountains.png" alt="two-mountains">
+      <h3 class="title-header">{{companyName.toUpperCase()}}</h3>
+    </div>
+    <nav class="nav">
+      <ul class="nav-ul fs18">
+        @for (navLink of navLinks; track navLink.id) {
+        <li class="nav-li">
+          <a [routerLink]="navLink.path" routerLinkActive="nav-link-active"
+            [routerLinkActiveOptions]="{ exact : navLink.path === '/'}">
+            {{navLink.name}}
+          </a>
+        </li>
+        }
+      </ul>
+
+
+    </nav>
+    <div class="interactive-wrapper">
+      <button class="nav-btn">Консультация</button>
+
+      @if(interactive === 'counter') {
+      <div class="interactive">
+        <div>
+          <button class="interactive-btn" (click)="count = count + 1">+</button>
+          <div>{{count}}</div>
+          <button class="interactive-btn" (click)="count = count - 1" [disabled]="count === 0">-</button>
+        </div>
+        <button class="interactive-toggle-btn" (click)="showDate()">Показать дату</button>
+      </div>
+      }
+      @if(interactive === 'date') {
+      <div class="interactive">
+        <div class="interactive-date">{{ currentDate | date:'dd.MM.yyyy H:mm:ss' }}</div>
+        <button class="interactive-toggle-btn" (click)="showCounter()">Показать кликер</button>
+      </div>
+      }
+
+    </div>
+  </div>
+</header>

@@ -13,7 +13,7 @@ export class MessageService {
     return this.messages;
   }
 
-  addMessage(newMessage: Omit<IMessage, 'id'>): void {
+  private addMessage(newMessage: Omit<IMessage, 'id'>): void {
     const message = {
       id: ++this.nextId,
       ...newMessage
@@ -26,5 +26,21 @@ export class MessageService {
 
   closeMessage(id: number): void {
     this.messages = this.messages.filter(message => message.id != id);
+  }
+
+  showWarn(message: string): void {
+    this.addMessage({ text: message, type: messageTypes.WARNING });
+  }
+
+  showError(message: string): void {
+    this.addMessage({ text: message, type: messageTypes.ERROR });
+  }
+
+  showSuccess(message: string): void {
+    this.addMessage({ text: message, type: messageTypes.SUCCESS });
+  }
+
+  showInfo(message: string): void {
+    this.addMessage({ text: message, type: messageTypes.INFO });
   }
 }
