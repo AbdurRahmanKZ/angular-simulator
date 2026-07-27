@@ -3,9 +3,10 @@ import { UserService } from '../../services/user/user.service';
 import { IUsers } from '../../interfaces/users/users';
 import { AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs';
+import { UserCardComponent } from './user-card/user-card.component';
 @Component({
   selector: 'app-users-page',
-  imports: [AsyncPipe],
+  imports: [AsyncPipe, UserCardComponent],
   templateUrl: './users-page.component.html',
   styleUrl: './users-page.component.scss',
 })
@@ -16,5 +17,9 @@ export class UsersPageComponent {
 
   private ngOnInit(): void {
     this.userService.loadUsers();
+  }
+
+  public onDeleteUser(userId: number): void {
+    this.userService.deleteUser(userId)
   }
 }

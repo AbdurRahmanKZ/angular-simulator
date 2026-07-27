@@ -41,4 +41,14 @@ export class UserService {
       this.setUsers(users)
     })
   }
+
+  deleteUser(userId: number): void {
+    const users = this.userSubject.getValue();
+
+    const updatedUsers = users.filter(
+      (user: IUsers) => user.id !== userId
+    );
+
+    this.userSubject.next(updatedUsers);
+  }
 }
