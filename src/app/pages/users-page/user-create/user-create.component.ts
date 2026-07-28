@@ -36,7 +36,7 @@ export class UserCreateComponent {
       Validators.maxLength(100),
     ]),
 
-    phone: this.formBuider.nonNullable.control(0, [
+    phone: this.formBuider.nonNullable.control('', [
       Validators.required,
       Validators.minLength(10),
       Validators.maxLength(25),

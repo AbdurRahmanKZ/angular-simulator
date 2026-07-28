@@ -3,6 +3,8 @@
     <div class="users-title-container">
       <h1 class="users-title">Список Пользователей</h1>
     </div>
+    
+    <app-user-create (userCreated)="onUserCreated($event)"/>
     <div class="users-catalog">
 
       @for (user of users$ | async; track user.id) {

@@ -42,6 +42,15 @@ export class UserService {
     })
   }
 
+  addUser(user: IUsers): void {
+    const users = this.userSubject.getValue();
+
+    this.userSubject.next([
+      user,
+      ...users,
+    ]);
+  }
+
   deleteUser(userId: number): void {
     const users = this.userSubject.getValue();
 
