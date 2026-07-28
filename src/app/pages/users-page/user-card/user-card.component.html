@@ -9,7 +9,7 @@
   <div class="users-card-title-wrapper">
     <h3 class="users-card-title">Контакты</h3>
     <hr class="users-card-line">
-    <h4 class="users-card-username bold brown">@{{ user.username?.trim() ? '@' + user.username : 'Неизвестно' }}</h4>
+    <h4 class="users-card-username bold brown">{{ user.username?.trim() ? '+' + user.username : 'Неизвестно' }}</h4>
   </div>
   <div class="users-card-group">
     <span class="users-card-group-desc">Эл. почта:</span>
