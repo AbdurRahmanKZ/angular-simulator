@@ -63,3 +63,37 @@
   color: #1f3b3b;
   font-weight: 700;
 }
+
+.users {
+  padding: 40px 20px;
+}
+
+.users-container {
+  width: 1180px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.users-title {
+  margin-bottom: 24px;
+  font-size: 32px;
+}
+
+.users-catalog {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 30px;
+}
+
+@media (max-width: 900px) {
+  .users-catalog {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .users-catalog {
+    grid-template-columns: 1fr;
+  }
+}

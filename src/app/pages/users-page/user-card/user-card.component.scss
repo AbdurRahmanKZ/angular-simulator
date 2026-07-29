@@ -85,3 +85,58 @@
 .brown {
   color: #D4A373;
 }
+
+.users-card {
+  position: relative;
+  padding: 22px;
+  border: 1px solid #dddddd;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.users-card-delete {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 7px 10px;
+  border: none;
+  border-radius: 6px;
+  background: #c62828;
+  color: white;
+  cursor: pointer;
+}
+
+.users-card-delete:hover {
+  opacity: 0.85;
+}
+
+.users-card-name {
+  padding-right: 120px;
+}
+
+.users-card-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.users-card-group-desc {
+  color: #666666;
+}
+
+.users-card-title-wrapper {
+  margin-top: 18px;
+  margin-bottom: 12px;
+}
+
+.users-card-line {
+  border: none;
+  border-top: 1px solid #dddddd;
+}
+
+.users-card-group-coords {
+  display: flex;
+  gap: 10px;
+}

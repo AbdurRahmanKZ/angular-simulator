@@ -1,0 +1,85 @@
+.user-create-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  margin-bottom: 30px;
+  border: 1px solid #dddddd;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.user-create-form h2 {
+  margin: 0;
+}
+
+.user-create-form fieldset {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+}
+
+.user-create-form legend {
+  padding: 0 8px;
+  font-weight: 700;
+}
+
+.user-create-form fieldset > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.user-create-form label {
+  font-weight: 600;
+}
+
+.user-create-form input,
+.user-create-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cfcfcf;
+  border-radius: 7px;
+  font-size: 15px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.user-create-form input:focus,
+.user-create-form textarea:focus {
+  border-color: #7a4f2d;
+}
+
+.user-create-form textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.user-create-form span {
+  color: #c62828;
+  font-size: 13px;
+}
+
+#user-create-submit {
+  width: fit-content;
+  padding: 11px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #7a4f2d;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+#user-create-submit:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 700px) {
+  .user-create-form fieldset {
+    grid-template-columns: 1fr;
+  }
+}
