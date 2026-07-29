@@ -9,9 +9,16 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { MessagesComponent } from './layout/messages/messages.component';
 import { LoaderComponent } from './layout/loader/loader.component';
+import {
+  FaIconLibrary,
+  FontAwesomeModule,
+} from '@fortawesome/angular-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, MessagesComponent, LoaderComponent],
+  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, MessagesComponent, LoaderComponent, FontAwesomeModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -19,7 +26,8 @@ import { LoaderComponent } from './layout/loader/loader.component';
 export class AppComponent {
   localStorageService: LocalStorageService = inject(LocalStorageService);
 
-  constructor() {
+  constructor(library: FaIconLibrary) {
+    library.addIconPacks(fas, far, fab)
     this.saveLastLoad();
     this.saveQtyLoad();
   }

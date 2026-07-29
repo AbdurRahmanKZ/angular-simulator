@@ -1,6 +1,7 @@
 <div class="users-card">
 
-  <button type="button" class="users-card-delete" (click)="onDeleteUser()">
+  <button type="button" class="users-card-delete" aria-label="Удалить пользователя" (click)="onDeleteUser()">
+    <fa-icon [icon]="['fas', 'trash']"></fa-icon>
     Удалить пользователя
   </button>
 
