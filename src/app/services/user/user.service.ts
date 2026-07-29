@@ -38,7 +38,7 @@ export class UserService {
       this.localStorageService.get<IUsers[]>(
         this.USERS_STORAGE_KEY
       );
-    if (storedUsers !== null) {
+    if (storedUsers !== null && storedUsers.length > 0) {
       this.userSubject.next(storedUsers);
       return;
     }
