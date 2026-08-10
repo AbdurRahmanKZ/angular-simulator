@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Inject, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators, } from '@angular/forms';
 import { IUsers } from '../../../interfaces/users/users';
 
@@ -9,87 +9,87 @@ import { IUsers } from '../../../interfaces/users/users';
   styleUrl: './user-create.component.scss',
 })
 export class UserCreateComponent {
-  private formBuider = inject(FormBuilder);
+  private formBuilder = inject(FormBuilder);
 
   @Output() userCreated = new EventEmitter<IUsers>();
 
-  public userForm = this.formBuider.nonNullable.group({
-    id: this.formBuider.nonNullable.control(0, [
+  public userForm = this.formBuilder.nonNullable.group({
+    id: this.formBuilder.nonNullable.control(0, [
       Validators.required,
     ]),
 
-    name: this.formBuider.nonNullable.control('', [
+    name: this.formBuilder.nonNullable.control('', [
       Validators.required,
       Validators.minLength(2),
       Validators.maxLength(100),
     ]),
 
-    username: this.formBuider.nonNullable.control('', [
+    username: this.formBuilder.nonNullable.control('', [
       Validators.required,
       Validators.minLength(3),
       Validators.maxLength(30),
     ]),
 
-    email: this.formBuider.nonNullable.control('', [
+    email: this.formBuilder.nonNullable.control('', [
       Validators.required,
       Validators.email,
       Validators.maxLength(100),
     ]),
 
-    phone: this.formBuider.nonNullable.control('', [
+    phone: this.formBuilder.nonNullable.control('', [
       Validators.required,
       Validators.minLength(10),
       Validators.maxLength(25),
     ]),
 
-    website: this.formBuider.nonNullable.control('', [
+    website: this.formBuilder.nonNullable.control('', [
       Validators.maxLength(100),
     ]),
 
-    address: this.formBuider.nonNullable.group({
-      city: this.formBuider.nonNullable.control('', [
+    address: this.formBuilder.nonNullable.group({
+      city: this.formBuilder.nonNullable.control('', [
         Validators.required,
         Validators.maxLength(50),
       ]),
 
-      street: this.formBuider.nonNullable.control('', [
+      street: this.formBuilder.nonNullable.control('', [
         Validators.required,
         Validators.maxLength(100),
       ]),
 
-      suite: this.formBuider.nonNullable.control('', [
+      suite: this.formBuilder.nonNullable.control('', [
         Validators.maxLength(50),
       ]),
 
-      zipcode: this.formBuider.nonNullable.control('', [
+      zipcode: this.formBuilder.nonNullable.control('', [
         Validators.required,
         Validators.minLength(5),
         Validators.maxLength(10),
       ]),
 
-      geo: this.formBuider.nonNullable.group({
-        lat: this.formBuider.nonNullable.control('', [
+      geo: this.formBuilder.nonNullable.group({
+        lat: this.formBuilder.nonNullable.control('', [
           Validators.required,
         ]),
 
-        lng: this.formBuider.nonNullable.control('', [
+        lng: this.formBuilder.nonNullable.control('', [
           Validators.required,
         ]),
       }),
     }),
 
-    company: this.formBuider.nonNullable.group({
-      name: this.formBuider.nonNullable.control('', [
+    company: this.formBuilder.nonNullable.group({
+      name: this.formBuilder.nonNullable.control('', [
         Validators.required,
         Validators.maxLength(50),
       ]),
 
-      catchPhrase: this.formBuider.nonNullable.control('', [
+      catchPhrase: this.formBuilder.nonNullable.control('', [
         Validators.maxLength(200),
       ]),
 
-      bs: this.formBuider.nonNullable.control('', [
-        Validators.maxLength(300),
+      bs: this.formBuilder.nonNullable.control('', [
+        Validators.maxLength(100),
       ]),
     }),
   });

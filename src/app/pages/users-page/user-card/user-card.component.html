@@ -4,24 +4,24 @@
     Удалить пользователя
   </button>
 
-  <h3 class="users-card-name">{{ user.name }}</h3>
+  <h3 class="users-card-name">{{ user.name?.trim() || 'Неизвестно' }}</h3>
 
   <div class="users-card-title-wrapper">
     <h3 class="users-card-title">Контакты</h3>
     <hr class="users-card-line">
-    <h4 class="users-card-username bold brown">@{{ user.username }}</h4>
+    <h4 class="users-card-username bold brown">{{ user.username?.trim() ? '+' + user.username : 'Неизвестно' }}</h4>
   </div>
   <div class="users-card-group">
     <span class="users-card-group-desc">Эл. почта:</span>
-    <span class="brown bold">{{ user.email }}</span>
+    <span class="brown bold">{{ user.email?.trim() || 'Неизвестно' }}</span>
   </div>
   <div class="users-card-group">
     <span class="users-card-group-desc">Телефон:</span>
-    <span class="bold">+{{ user.phone }}</span>
+    <span class="bold">+{{ user.phone?.trim() ? '+' + user.phone : 'Неизвестно' }}</span>
   </div>
   <div class="users-card-group">
     <span class="users-card-group-desc">Веб-сайт:</span>
-    <span class="brown bold">{{ user.website }}</span>
+    <span class="brown bold">{{ user.website?.trim() || 'Неизвестно' }}</span>
   </div>
 
   <div class="users-card-title-wrapper">
@@ -30,25 +30,25 @@
   </div>
   <div class="users-card-group">
     <span class="users-card-group-desc">Город:</span>
-    <span class="bold">{{ user.address.city }}</span>
+    <span class="bold">{{ user.address.city?.trim() || 'Неизвестно' }}</span>
   </div>
   <div class="users-card-group">
     <span class="users-card-group-desc">Улица:</span>
-    <span class="bold">{{ user.address.street }}</span>
+    <span class="bold">{{ user.address.street?.trim() || 'Неизвестно' }}</span>
   </div>
   <div class="users-card-group">
     <span class="users-card-group-desc">Офис:</span>
-    <span class="bold">{{ user.address.suite }}</span>
+    <span class="bold">{{ user.address.suite?.trim() || 'Неизвестно' }}</span>
   </div>
   <div class="users-card-group">
     <span class="users-card-group-desc">Индекс:</span>
-    <span class="bold">{{ user.address.zipcode }}</span>
+    <span class="bold">{{ user.address.zipcode?.trim() || 'Неизвестно' }}</span>
   </div>
   <div class="users-card-group">
     <span class="users-card-group-desc">Координаты:</span>
     <div class="users-card-group-coords">
-      <span class="bold coord-value">{{ user.address.geo.lat }}</span>
-      <span class="bold coord-value">{{ user.address.geo.lng }}</span>
+      <span class="bold coord-value">{{ user.address.geo.lat?.trim() || 'Неизвестно' }}</span>
+      <span class="bold coord-value">{{ user.address.geo.lng?.trim() || 'Неизвестно' }}</span>
     </div>
   </div>
 
@@ -58,14 +58,14 @@
   </div>
   <div class="users-card-group">
     <span class="users-card-group-desc">Компания:</span>
-    <span class="bold">{{ user.company.name }}</span>
+    <span class="bold">{{ user.company.name?.trim() || 'Неизвестно' }}</span>
   </div>
   <div class="users-card-group">
     <span class="users-card-group-desc">Миссия:</span>
-    <span class="bold italic">{{ user.company.catchPhrase }}</span>
+    <span class="bold italic">{{ user.company.catchPhrase?.trim() || 'Неизвестно' }}</span>
   </div>
   <div class="users-card-group">
     <span class="users-card-group-desc">Специализация:</span>
-    <span class="bold">{{ user.company.bs }}</span>
+    <span class="bold">{{ user.company.bs?.trim() || 'Неизвестно' }}</span>
   </div>
 </div>
