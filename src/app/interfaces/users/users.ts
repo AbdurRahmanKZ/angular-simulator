@@ -6,24 +6,24 @@ export interface IUsers {
   phone: string;
   website: string;
   address: IUsersAddress;
-  company: IUsersCompany
+  company: IUsersCompany;
 }
 
 export interface IUsersAddress {
   city: string;
   street: string;
   suite: string;
-  zipcode: number;
+  zipcode: string;
   geo: IUsersGeo;
 }
 
 export interface IUsersCompany {
   name: string;
   catchPhrase: string;
-  bs: string
+  bs: string;
 }
 
 export interface IUsersGeo {
-  lat: number;
-  lng: number;
+  lat: string;
+  lng: string;
 }

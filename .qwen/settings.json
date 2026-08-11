@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "computer_use__get_accessibility_tree",
+      "computer_use__get_window_state"
+    ]
+  },
+  "$version": 4
+}
