@@ -1,4 +1,5 @@
 @use '../../../assets/mixins.scss' as *;
+
 .footer {
   height: 521px;
   background-color: #1A3E3E;
@@ -27,10 +28,7 @@
           font-size: 20px;
           line-height: 24px;
           letter-spacing: 0;
-
         }
-
-        p {}
 
         .footer-about-contacts {
           width: 280px;
@@ -155,13 +153,11 @@
 
       .form-title-container {
         min-width: 380px;
-        .form-pretitle {}
-
-        .form-title {}
       }
 
       .form-main-container {
         width: 536px;
+
         .form-body {
           .form-label {
             font-weight: var(--font-normal);
@@ -191,7 +187,7 @@
             .form-btn {
               @include btn();
               height: 44px;
-              
+
             }
           }
         }
@@ -200,7 +196,7 @@
           font-weight: var(--font-normal);
           line-height: 18px;
           letter-spacing: -0.03em;
-          
+
 
         }
       }
@@ -220,7 +216,16 @@
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-
-    .footer-bottom-span {}
   }
+}
+
+.footer-images-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-images-container fa-icon {
+  font-size: 28px;
+  cursor: pointer;
 }

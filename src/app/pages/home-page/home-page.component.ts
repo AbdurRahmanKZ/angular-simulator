@@ -3,10 +3,11 @@ import { BlogCard, Facility, Location } from '../../interfaces/interfaces';
 import { FormsModule } from '@angular/forms';
 import { MessageService } from '../../services/message/message.service';
 import { Color } from '../../../enums/color';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-home-page',
-  imports: [FormsModule],
+  imports: [FormsModule, FontAwesomeModule],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
 })

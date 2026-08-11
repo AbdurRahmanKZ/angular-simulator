@@ -56,8 +56,7 @@
           колледжа Hampden-Sydney, штат Вирджиния, взял одно из самых странных слов в Lorem Ipsum,
           "consectetur"и занялся его поисками в классической латинской литературе.
         </p>
-        <button class="about-btn"
-          (click)="messageService.showSuccess('Запрос успешный')">
+        <button class="about-btn" (click)="messageService.showSuccess('Запрос успешный')">
           Программа тура
         </button>
       </div>
@@ -87,8 +86,7 @@
         }
 
       </div>
-      <button class="facilities-btn"
-        (click)="messageService.showInfo('Запрос информации')">
+      <button class="facilities-btn" (click)="messageService.showInfo('Запрос информации')">
         Стоимость программ
       </button>
     </div>
@@ -128,8 +126,9 @@
           </div>
         </div>
         <div class="location-raiting-container">
-          <div class="location-raiting-star-wrapper"><img class="location-raiting-star" src="/pictures/star.svg"
-              alt="star icon"></div>
+          <div class="location-raiting-star-wrapper">
+            <fa-icon class="location-raiting-star" [icon]="['fas', 'star']"></fa-icon>
+          </div>
           <span class="location-raiting">{{ location.raiting.toFixed(1) }}</span>
         </div>
         <img class="location-img" [src]="location.img" alt="location image">
@@ -137,8 +136,7 @@
       }
 
     </div>
-    <button class="popular-btn"
-      (click)="messageService.showWarn('Внимание запрос отправлен')">
+    <button class="popular-btn" (click)="messageService.showWarn('Внимание запрос отправлен')">
       Рейтинг направлений
     </button>
   </div>
@@ -169,8 +167,7 @@
       }
 
     </div>
-    <button class="blog-btn"
-      (click)="messageService.showError('Ошибка запроса')">
+    <button class="blog-btn" (click)="messageService.showError('Ошибка запроса')">
       Другие материалы
     </button>
   </div>
@@ -194,8 +191,7 @@
         <img src="/pictures/old-map.svg" alt="">
       </div>
     </div>
-    <button class="review-btn"
-      (click)="messageService.showError('Ошибка запроса')">
+    <button class="review-btn" (click)="messageService.showError('Ошибка запроса')">
       Другие материалы
     </button>
   </div>
